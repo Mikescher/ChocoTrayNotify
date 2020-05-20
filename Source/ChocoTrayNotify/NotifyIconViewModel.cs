@@ -1,4 +1,5 @@
-﻿using MSHC.WPF.MVVM;
+﻿using ChocoTrayNotify.Windows;
+using MSHC.WPF.MVVM;
 using System.Windows;
 using System.Windows.Input;
 
