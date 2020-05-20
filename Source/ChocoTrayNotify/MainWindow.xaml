@@ -3,6 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <TextBlock Text="Have a look at App.xaml and App.xaml.cs to see how things are working" />
+        <TabControl>
+            <TabItem Header="Status">
+
+            </TabItem>
+            <TabItem Header="Settings">
+
+            </TabItem>
+            <TabItem Header="Log">
+
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

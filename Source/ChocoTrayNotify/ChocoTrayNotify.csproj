@@ -19,7 +19,6 @@
     <None Remove="icon_error.ico" />
     <None Remove="icon_off.ico" />
     <None Remove="icon_on.ico" />
-    <None Remove="red.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,34 +26,31 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="icon_active.ico">
+    <Resource Include="icons\icon_active.ico">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="icon_error.ico">
+    <Resource Include="icons\icon_error.ico">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="icon_off.ico">
+    <Resource Include="icons\icon_off.ico">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="icon_on.ico">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="red.ico">
+    <Resource Include="icons\icon_on.ico">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="icon_active.png">
+    <None Update="icons\icon_active.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="icon_error.png">
+    <None Update="icons\icon_error.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="icon_off.png">
+    <None Update="icons\icon_off.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="icon_on.png">
+    <None Update="icons\icon_on.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
