@@ -7,6 +7,7 @@ namespace ChocoTrayNotify.Windows
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainWindowViewmodel();
         }
     }
 }
