@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace ChocoTrayNotify.Choco
+namespace ChocoTrayNotify.Powershell
 {
-    public class ChocoCommandException : Exception
+    public class ProcessException : Exception
     {
         public string Caption { get; } 
         public string Content { get; }
 
-        public ChocoCommandException(string messageCaption, string longerMessage) : base(messageCaption)
+        public ProcessException(string messageCaption, string longerMessage) : base(messageCaption)
         {
             Caption = messageCaption;
             Content = longerMessage;

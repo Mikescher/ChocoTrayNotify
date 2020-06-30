@@ -1,4 +1,5 @@
-﻿using Hardcodet.Wpf.TaskbarNotification;
+﻿using ChocoTrayNotify.Windows;
+using Hardcodet.Wpf.TaskbarNotification;
 using System.Windows;
 
 namespace ChocoTrayNotify
@@ -12,6 +13,8 @@ namespace ChocoTrayNotify
             base.OnStartup(e);
 
             notifyIcon = (TaskbarIcon)FindResource("NotifyIcon");
+
+            (Application.Current.MainWindow = new MainWindow()).Show();
         }
 
         protected override void OnExit(ExitEventArgs e)

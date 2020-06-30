@@ -5,9 +5,10 @@
 
         public string PackageName      { get;}
         public string CurrentVersion   { get;}
-
         public string AvailableVersion { get;}
         public bool?  Pinned           { get;}
+
+        public bool UpdateAvailable => CurrentVersion != AvailableVersion;
 
         public ChocoPackage(string name, string v1, string v2, bool? pinned)
         {
