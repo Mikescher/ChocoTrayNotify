@@ -15,6 +15,8 @@ namespace ChocoTrayNotify.Windows
         {
             InitializeComponent();
             this.DataContext = VM = new MainWindowViewmodel();
+
+            GAS.Log.AddDebug("Show Mainwindow");
         }
 
     }

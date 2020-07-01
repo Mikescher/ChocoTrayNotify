@@ -17,7 +17,7 @@ namespace ChocoTrayNotify
         public static GlobalAppState Inst => App.CurrentApp.State;
 
         public CTNSettings Settings { get; set; } = new CTNSettings();
-        public CTNLog       Log      { get; set; } = new CTNLog();
+        public CTNLog      Log      { get; set; } = new CTNLog();
 
         private AppStatus _appStatus = AppStatus.Okay;
         public AppStatus AppStatus

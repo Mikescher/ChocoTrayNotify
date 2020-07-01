@@ -1,16 +1,20 @@
-﻿namespace ChocoTrayNotify.Log
+﻿using System;
+
+namespace ChocoTrayNotify.Log
 {
     public class CTNLogEntry
     {
-        public CTNLogType Type    { get; }
-        public string     Title   { get; }
-        public string     Message { get; }
+        public DateTime   Timestamp { get; }
+        public CTNLogType Type      { get; }
+        public string     Title     { get; }
+        public string     Message   { get; }
 
         public CTNLogEntry(CTNLogType t, string title, string msg)
         {
-            Type    = t;
-            Title   = title;
-            Message = msg;
+            Timestamp = DateTime.Now;
+            Type      = t;
+            Title     = title;
+            Message   = msg;
         }
     }
 }

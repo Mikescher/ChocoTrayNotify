@@ -12,5 +12,7 @@ namespace ChocoTrayNotify
 		public ICommand HideWindowCommand { get; } = new RelayCommand((_) => Application.Current.MainWindow?.Close() /*, (_) => Application.Current.MainWindow != null*/ );
 
 		public ICommand ExitApplicationCommand { get; } = new RelayCommand(() => Application.Current.Shutdown());
+
+		public GlobalAppState GlobalAppState => GAS.Inst;
     }
 }

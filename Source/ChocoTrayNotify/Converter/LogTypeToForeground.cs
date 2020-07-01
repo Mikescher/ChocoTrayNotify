@@ -11,8 +11,8 @@ namespace ChocoTrayNotify.Converter
         {
             return value switch
             {
-                CTNLogType.Debug      => Brushes.LightGray,
-                CTNLogType.Info       => Brushes.LightBlue,
+                CTNLogType.Debug      => Brushes.Gray,
+                CTNLogType.Info       => Brushes.Black,
                 CTNLogType.Error      => Brushes.Red,
                 CTNLogType.Command    => Brushes.Black,
                 CTNLogType.WebRequest => Brushes.Black,

@@ -22,6 +22,8 @@ namespace ChocoTrayNotify
         public App()
         {
             State = new GlobalAppState();
+
+            GAS.Log.AddDebug("App startup");
         }
 
         protected override void OnStartup(StartupEventArgs e)
