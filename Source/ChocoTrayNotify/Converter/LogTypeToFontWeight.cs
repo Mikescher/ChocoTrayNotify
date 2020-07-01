@@ -1,5 +1,5 @@
 ﻿using ChocoTrayNotify.Log;
-using ChocoTrayNotify.MVVM;
+using MSHC.WPF.MVVM;
 using System;
 using System.Windows;
 

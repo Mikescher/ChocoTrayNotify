@@ -1,4 +1,4 @@
-﻿using ChocoTrayNotify.MVVM;
+﻿using MSHC.WPF.MVVM;
 using System.Windows.Media;
 
 namespace ChocoTrayNotify.Converter

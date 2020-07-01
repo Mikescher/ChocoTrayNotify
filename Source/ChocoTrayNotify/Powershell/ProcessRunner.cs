@@ -1,5 +1,5 @@
-﻿using ChocoTrayNotify.Extensions;
-using ChocoTrayNotify.Log;
+﻿using ChocoTrayNotify.Log;
+using MSHC.Lang.Other;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -12,10 +12,9 @@ namespace ChocoTrayNotify.Powershell
     {
         public static async Task<ProcessResult> RunPowershell(string args, bool elevated, int timeout, bool showWindow)
         {
-            ProcessResult r = null;
-
             CTLog.AddInfo($"Powershell command '{args}' started");
 
+            ProcessResult r;
             if (elevated)
                 r = await RunElevated(args, CTNSettings.Inst.PowershellPath, "runas", args, timeout, showWindow);
             else

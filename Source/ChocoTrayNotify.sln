@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChocoTrayNotify", "ChocoTra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotifyIconWpf", "NotifyIconWpf\NotifyIconWpf.csproj", "{674798B9-E722-4793-BDAD-234CD7800748}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpUtils", "External\CSharpUtils\CSharpUtils.csproj", "{0091FA90-3FDC-4491-9B03-AF542246431B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{674798B9-E722-4793-BDAD-234CD7800748}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{674798B9-E722-4793-BDAD-234CD7800748}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{674798B9-E722-4793-BDAD-234CD7800748}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0091FA90-3FDC-4491-9B03-AF542246431B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0091FA90-3FDC-4491-9B03-AF542246431B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0091FA90-3FDC-4491-9B03-AF542246431B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0091FA90-3FDC-4491-9B03-AF542246431B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

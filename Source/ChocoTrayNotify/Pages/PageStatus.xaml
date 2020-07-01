@@ -3,15 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ChocoTrayNotify.Pages" xmlns:conv="clr-namespace:ChocoTrayNotify.Converter" xmlns:ctrl="clr-namespace:ChocoTrayNotify.Controls"
+             xmlns:local="clr-namespace:ChocoTrayNotify.Pages" xmlns:conv="clr-namespace:ChocoTrayNotify.Converter" xmlns:ctrl="clr-namespace:ChocoTrayNotify.Controls" xmlns:cconv="clr-namespace:MSHC.WPF.Converter;assembly=CSharpUtils"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="550">
     <Grid x:Name="RootGrid">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" MinWidth="100" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="12" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -19,11 +18,12 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBox Margin="4" Grid.Column="1" Grid.Row="0" />
-        <Button  Margin="4" Grid.Column="2" Grid.Row="0" Content="Refresh" Command="{Binding RefreshCommand}" IsEnabled="{Binding IsRefreshing, Converter={conv:BooleanNot}}" />
-        <ctrl:ProgressIndicatorControl Margin="0" Grid.Column="4" Grid.Row="0" Visibility="{Binding IsRefreshing, Converter={conv:BoolToVisibility}, ConverterParameter='Visible;Hidden'}" />
+        <ctrl:ProgressIndicatorControl Margin="4" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Visibility="{Binding IsRefreshing, Converter={cconv:BoolToVisibility}, ConverterParameter='Visible;Hidden'}" />
 
-        <DataGrid Margin="4" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" ItemsSource="{Binding Packages}" AutoGenerateColumns="False" SelectionMode="Single" >
+        <TextBox Margin="4" Grid.Column="2" Grid.Row="0" />
+        <Button  Margin="4" Grid.Column="3" Grid.Row="0" Content="Refresh" Command="{Binding RefreshCommand}" IsEnabled="{Binding IsRefreshing, Converter={cconv:NegateBool}}" />
+
+        <DataGrid Margin="4" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" ItemsSource="{Binding Packages}" AutoGenerateColumns="False" SelectionMode="Single" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Package Name"      Binding="{Binding PackageName}"      />
                 <DataGridTextColumn Header="Current Version"   Binding="{Binding CurrentVersion}"   />

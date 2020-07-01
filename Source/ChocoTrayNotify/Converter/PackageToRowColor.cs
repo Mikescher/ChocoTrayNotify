@@ -1,6 +1,5 @@
 ﻿using ChocoTrayNotify.Choco;
-using ChocoTrayNotify.Log;
-using ChocoTrayNotify.MVVM;
+using MSHC.WPF.MVVM;
 using System;
 using System.Windows.Media;
 
@@ -13,6 +12,8 @@ namespace ChocoTrayNotify.Converter
             if (parameter?.ToString() == "Background")
             {
                 if (value.UpdateAvailable && value.Pinned != true) return Brushes.OrangeRed;
+
+                if (value.UpdateAvailable) return Brushes.Yellow;
 
                 return Brushes.White;
             }
