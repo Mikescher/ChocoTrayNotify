@@ -33,7 +33,7 @@ namespace ChocoTrayNotify
             NotifyIcon = (TaskbarIcon)FindResource("NotifyIcon");
             NotifyIconVM = (NotifyIconViewmodel)NotifyIcon.DataContext;
 
-            if (!GAS.Settings.StartMinimized) (Application.Current.MainWindow = new MainWindow()).Show();
+            if (!GAS.Settings.StartMinimized || GAS.Inst.IsFirstStart) (Application.Current.MainWindow = new MainWindow()).Show();
         }
 
         protected override void OnExit(ExitEventArgs e)

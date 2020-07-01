@@ -32,9 +32,9 @@ namespace ChocoTrayNotify.Log
             Add(new CTNLogEntry(CTNLogType.Command, title, txt.ToString()));
         }
 
-        public void AddDebug(string txt)
+        public void AddDebug(string title, string msg = "")
         {
-            Add(new CTNLogEntry(CTNLogType.Debug, txt, ""));
+            Add(new CTNLogEntry(CTNLogType.Debug, title, msg));
         }
 
         public void AddError(string msg, Exception e)
