@@ -127,3 +127,19 @@ namespace ChocoTrayNotify
         }
     }
 }
+
+
+/*
+ TODO
+  - Background Refresh
+  - Remember last choco list (between restarts)
+  - Check for CTN updates
+  - Open powershell with choco upgrade all (or choco upgrade <package>)
+  - settings tab
+  - anon stats to ms.com
+  - better icons (?)
+  - about tab (license, link, check for updates button)
+  - version + show verison in Mainwindow title
+ 
+ 
+ */
