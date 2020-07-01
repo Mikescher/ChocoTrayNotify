@@ -11,9 +11,9 @@ namespace ChocoTrayNotify.Converter
         {
             if (parameter?.ToString() == "Background")
             {
-                if (value.UpdateAvailable && value.Pinned != true) return Brushes.OrangeRed;
+                if (value.IsOutdatedAndUpdateable) return Brushes.OrangeRed;
 
-                if (value.UpdateAvailable) return Brushes.Yellow;
+                if (value.UpdateAvailable) return Brushes.Khaki;
 
                 return Brushes.White;
             }

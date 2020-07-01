@@ -4,17 +4,18 @@
         xmlns:conv="clr-namespace:ChocoTrayNotify.Converter" 
         xmlns:ctrl="clr-namespace:ChocoTrayNotify.Controls" xmlns:pages="clr-namespace:ChocoTrayNotify.Pages"
         WindowStartupLocation="CenterScreen"
+        Icon="/icons/icon_on.png"
         Title="ChocoTrayNotify" Height="750" Width="550">
     <Grid>
         <TabControl>
             <TabItem Header="Status">
-                <pages:PageStatus />
+                <pages:PageStatus x:Name="PageStatus" />
             </TabItem>
             <TabItem Header="Settings">
-                <pages:PageSettings />
+                <pages:PageSettings x:Name="PageSettings" />
             </TabItem>
             <TabItem Header="Log">
-                <pages:PageLog />
+                <pages:PageLog x:Name="PageLog" />
             </TabItem>
         </TabControl>
     </Grid>

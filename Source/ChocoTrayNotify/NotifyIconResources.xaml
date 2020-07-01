@@ -17,7 +17,7 @@
                     ContextMenu="{StaticResource SysTrayMenu}">
 
         <tb:TaskbarIcon.DataContext>
-            <local:NotifyIconViewModel />
+            <local:NotifyIconViewmodel />
         </tb:TaskbarIcon.DataContext>
         
     </tb:TaskbarIcon>

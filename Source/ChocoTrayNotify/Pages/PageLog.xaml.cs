@@ -1,13 +1,13 @@
-﻿using System.Windows.Controls;
-
-namespace ChocoTrayNotify.Pages
+﻿namespace ChocoTrayNotify.Pages
 {
     public partial class PageLog
     {
+        public PageLogViewmodel VM;
+
         public PageLog()
         {
             InitializeComponent();
-            RootGrid.DataContext = new PageLogViewmodel();
+            RootGrid.DataContext = VM = new PageLogViewmodel();
         }
     }
 }

@@ -16,9 +16,15 @@
 
         <DataGrid Margin="4" Grid.Row="0" ItemsSource="{Binding Logs}" AutoGenerateColumns="False" SelectionMode="Single" SelectedItem="{Binding SelectedLogItem}" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Type"    Binding="{Binding Type}"  MinWidth="75"  Foreground="{Binding Type, Converter={conv:LogTypeToForeground}}" FontWeight="{Binding Type, Converter={conv:LogTypeToFontWeight}}" />
-                <DataGridTextColumn Header="Title"   Binding="{Binding Title}" MinWidth="300" Foreground="{Binding Type, Converter={conv:LogTypeToForeground}}" FontWeight="{Binding Type, Converter={conv:LogTypeToFontWeight}}" />
+                <DataGridTextColumn Header="Type"    Binding="{Binding Type}"  MinWidth="75"  />
+                <DataGridTextColumn Header="Title"   Binding="{Binding Title}" MinWidth="300" />
             </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Foreground" Value="{Binding Type, Converter={conv:LogTypeToForeground}}"/>
+                    <Setter Property="FontWeight" Value="{Binding Type, Converter={conv:LogTypeToFontWeight}}"/>
+                </Style>
+            </DataGrid.RowStyle>
         </DataGrid>
 
         <GridSplitter Grid.Row="1" ResizeDirection="Columns" />

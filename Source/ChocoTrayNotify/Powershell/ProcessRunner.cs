@@ -12,15 +12,15 @@ namespace ChocoTrayNotify.Powershell
     {
         public static async Task<ProcessResult> RunPowershell(string args, bool elevated, int timeout, bool showWindow)
         {
-            CTLog.AddInfo($"Powershell command '{args}' started");
+            GAS.Log.AddInfo($"Powershell command '{args}' started");
 
             ProcessResult r;
             if (elevated)
-                r = await RunElevated(args, CTNSettings.Inst.PowershellPath, "runas", args, timeout, showWindow);
+                r = await RunElevated(args, GAS.Settings.PowershellPath, "runas", args, timeout, showWindow);
             else
-                r = await RunNormal(args, CTNSettings.Inst.PowershellPath, "", args, timeout, showWindow);
+                r = await RunNormal(args, GAS.Settings.PowershellPath, "", args, timeout, showWindow);
 
-            CTLog.AddInfo($"Powershell command '{args}' finished");
+            GAS.Log.AddInfo($"Powershell command '{args}' finished");
 
             return r;
         }
@@ -87,13 +87,13 @@ namespace ChocoTrayNotify.Powershell
 
                 var result = new ProcessResult(builderOut.ToString(), builderErr.ToString(), builderBoth.ToString(), process.ExitCode);
 
-                CTLog.AddCommand(title, command, args, result);
+                GAS.Log.AddCommand(title, command, args, result);
 
                 return result;
             }
             catch (Exception e)
             {
-                CTLog.AddError($"Command '{title}' failed", e);
+                GAS.Log.AddError($"Command '{title}' failed", e);
 
                 throw;
             }
@@ -147,13 +147,13 @@ namespace ChocoTrayNotify.Powershell
 
                 var result = new ProcessResult(stdout, stderr, stdout + "\n" + stderr, process.ExitCode);
 
-                CTLog.AddCommand(title, command, args, result);
+                GAS.Log.AddCommand(title, command, args, result);
 
                 return result;
             }
             catch (Exception e)
             {
-                CTLog.AddError($"Command '{title}' failed", e);
+                GAS.Log.AddError($"Command '{title}' failed", e);
 
                 throw;
             }

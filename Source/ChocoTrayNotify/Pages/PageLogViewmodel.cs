@@ -6,10 +6,10 @@ namespace ChocoTrayNotify.Pages
 {
     public class PageLogViewmodel: ObservableObject
     {
-        public ObservableCollection<CTLogEntry> Logs { get; } = CTLog.Inst.Entries;
+        public ObservableCollection<CTNLogEntry> Logs { get; } = GAS.Log.Entries;
 
-        private CTLogEntry _selectedLogItem = null;
-        public CTLogEntry SelectedLogItem
+        private CTNLogEntry _selectedLogItem = null;
+        public CTNLogEntry SelectedLogItem
         {
             get { return _selectedLogItem; }
             set { _selectedLogItem = value; OnPropertyChanged(); }

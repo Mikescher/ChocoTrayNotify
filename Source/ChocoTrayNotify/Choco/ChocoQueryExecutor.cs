@@ -11,9 +11,9 @@ namespace ChocoTrayNotify.Choco
         private static async Task<string> Run(string cmd)
         {
             var r = await ProcessRunner.RunPowershell(cmd, 
-                CTNSettings.Inst.PowershellElevate, 
-                CTNSettings.Inst.ChocoCommandTimeout, 
-                CTNSettings.Inst.ShowPowershellWindow);
+                GAS.Settings.PowershellElevate, 
+                GAS.Settings.ChocoCommandTimeout, 
+                GAS.Settings.ShowPowershellWindow);
 
             if (r.ExitCode    != 0)  throw new ProcessException($"Command returned with exitcode {r.ExitCode}", $"[Command]\n{cmd}\n\n\n[stdout]\n{r.StandardOut}\n\n\n[stderr]\n{r.StandardErr}\n\n\n[exitcode]\n{r.ExitCode}");
             if (r.StandardErr != "") throw new ProcessException($"Command returned with stderr", $"[Command]\n{cmd}\n\n\n[stdout]\n{r.StandardOut}\n\n\n[stderr]\n{r.StandardErr}\n\n\n[exitcode]\n{r.ExitCode}");
@@ -40,7 +40,7 @@ namespace ChocoTrayNotify.Choco
 
         public static async Task<List<ChocoPackage>> QueryOutdated()
         {
-            var resultOutdated = await Run("choco outdated --limit-output --no-color");
+            var resultOutdated = await Run(GAS.Settings.ChocoCommand + " outdated --limit-output --no-color");
             
             var lines = Regex.Split(resultOutdated, @"\r?\n");
 
@@ -65,8 +65,8 @@ namespace ChocoTrayNotify.Choco
         {
             var results = new List<ChocoPackage>();
 
-            var resultList = await Run("choco list --local-only --limit-output --no-color");
-            var resultPin  = await Run("choco pin list --limit-output --no-color");
+            var resultList = await Run(GAS.Settings.ChocoCommand + " list --local-only --limit-output --no-color");
+            var resultPin  = await Run(GAS.Settings.ChocoCommand + " pin list --limit-output --no-color");
 
             var linesList = Regex.Split(resultList, @"\r?\n");
             for (int i = 0; i < linesList.Length; i++)

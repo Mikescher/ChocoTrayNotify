@@ -10,6 +10,8 @@
 
         public bool UpdateAvailable => CurrentVersion != AvailableVersion;
 
+        public bool IsOutdatedAndUpdateable => UpdateAvailable && Pinned != true;
+
         public ChocoPackage(string name, string v1, string v2, bool? pinned)
         {
             this.PackageName      = name;

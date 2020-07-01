@@ -5,17 +5,17 @@ using System.Windows.Media;
 
 namespace ChocoTrayNotify.Converter
 {
-    class LogTypeToForeground : OneWayConverter<CTLogType, Brush>
+    class LogTypeToForeground : OneWayConverter<CTNLogType, Brush>
     {
-        protected override Brush Convert(CTLogType value, object parameter)
+        protected override Brush Convert(CTNLogType value, object parameter)
         {
             return value switch
             {
-                CTLogType.Debug      => Brushes.LightGray,
-                CTLogType.Info       => Brushes.LightBlue,
-                CTLogType.Error      => Brushes.Red,
-                CTLogType.Command    => Brushes.Black,
-                CTLogType.WebRequest => Brushes.Black,
+                CTNLogType.Debug      => Brushes.LightGray,
+                CTNLogType.Info       => Brushes.LightBlue,
+                CTNLogType.Error      => Brushes.Red,
+                CTNLogType.Command    => Brushes.Black,
+                CTNLogType.WebRequest => Brushes.Black,
 
                 _                    => throw new ArgumentException(),
             };

@@ -1,6 +1,6 @@
 ﻿namespace ChocoTrayNotify.Log
 {
-    public enum CTLogType
+    public enum CTNLogType
     {
         Debug,
         Info,

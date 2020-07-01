@@ -5,17 +5,17 @@ using System.Windows;
 
 namespace ChocoTrayNotify.Converter
 {
-    class LogTypeToFontWeight : OneWayConverter<CTLogType, FontWeight>
+    class LogTypeToFontWeight : OneWayConverter<CTNLogType, FontWeight>
     {
-        protected override FontWeight Convert(CTLogType value, object parameter)
+        protected override FontWeight Convert(CTNLogType value, object parameter)
         {
             return value switch
             {
-                CTLogType.Debug      => FontWeights.Normal,
-                CTLogType.Info       => FontWeights.Normal,
-                CTLogType.Error      => FontWeights.Normal,
-                CTLogType.Command    => FontWeights.Bold,
-                CTLogType.WebRequest => FontWeights.Bold,
+                CTNLogType.Debug      => FontWeights.Normal,
+                CTNLogType.Info       => FontWeights.Normal,
+                CTNLogType.Error      => FontWeights.Normal,
+                CTNLogType.Command    => FontWeights.Bold,
+                CTNLogType.WebRequest => FontWeights.Bold,
 
                 _                    => throw new ArgumentException(),
             };
