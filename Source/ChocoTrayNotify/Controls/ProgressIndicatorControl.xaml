@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="ChocoTrayNotify.Controls.ProgressIndicatorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:conv="clr-namespace:ChocoTrayNotify.Converter"
+             mc:Ignorable="d" >
+    <StackPanel x:Name="RootGrid" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Border BorderBrush="Black" BorderThickness="2" Margin="2">
+            <Rectangle Fill="{Binding Progress, FallbackValue=CornflowerBlue, Converter={conv:ProgressIndicatorConverter}, ConverterParameter=0}" Width="16" Height="16"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="2" Margin="2">
+            <Rectangle Fill="{Binding Progress, FallbackValue=CornflowerBlue, Converter={conv:ProgressIndicatorConverter}, ConverterParameter=1}" Width="16" Height="16"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="2" Margin="2">
+            <Rectangle Fill="{Binding Progress, FallbackValue=CornflowerBlue, Converter={conv:ProgressIndicatorConverter}, ConverterParameter=2}" Width="16" Height="16"/>
+        </Border>
+    </StackPanel>
+</UserControl>
