@@ -7,9 +7,10 @@ namespace ChocoTrayNotify.Windows
     {
         public MainWindowViewmodel VM;
 
-        public PageStatusViewmodel StatusVM     => PageStatus.VM;
+        public PageStatusViewmodel   StatusVM   => PageStatus.VM;
         public PageSettingsViewmodel SettingsVM => PageSettings.VM;
-        public PageLogViewmodel LogVM           => PageLog.VM;
+        public PageLogViewmodel      LogVM      => PageLog.VM;
+        public PageAboutViewmodel    AboutVM    => PageAbout.VM;
 
         public MainWindow()
         {
@@ -19,5 +20,9 @@ namespace ChocoTrayNotify.Windows
             GAS.Log.AddDebug("Show Mainwindow");
         }
 
+        private void TabControl_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

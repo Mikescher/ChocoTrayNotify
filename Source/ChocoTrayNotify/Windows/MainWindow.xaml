@@ -17,6 +17,9 @@
             <TabItem Header="Log">
                 <pages:PageLog x:Name="PageLog" />
             </TabItem>
+            <TabItem Header="About">
+                <pages:PageAbout x:Name="PageAbout" />
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

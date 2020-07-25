@@ -3,10 +3,149 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ChocoTrayNotify.Pages"
+             xmlns:local="clr-namespace:ChocoTrayNotify.Pages" 
+             xmlns:ctrl="clr-namespace:ChocoTrayNotify.Controls" 
+             xmlns:csuctrl="clr-namespace:MSHC.WPF.Controls;assembly=CSharpUtils"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="550">
-    <Grid x:Name="RootGrid">
-        
+    <Grid x:Name="RootGrid" d:DataContext="{d:DesignInstance local:PageSettingsViewmodel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
+
+            <StackPanel Grid.IsSharedSizeScope="True">
+
+                <GroupBox Header="View">
+                    <StackPanel>
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto,  SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="Start minimized" />
+                            <CheckBox      Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Settings.StartMinimized}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="StartMinimized" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="Sort Updates to the top of the list" />
+                            <CheckBox      Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Settings.SortUpdatesToTop}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="SortUpdatesToTop" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="Simplify package list" />
+                            <CheckBox      Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Settings.SimplifyPackageDisplayList}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="SimplifyPackageDisplayList" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                    </StackPanel>
+                </GroupBox>
+
+
+                <GroupBox Header="Package Update checks">
+                    <StackPanel>
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto,  SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="Enable UpdateChecks" />
+                            <CheckBox      Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Settings.RefreshInBackground}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="RefreshInBackground" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="UpdateCheck Interval" />
+                            <TextBox       Grid.Column="1" VerticalAlignment="Center" Text="{Binding Settings.BackgroundRefreshInterval}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="BackgroundRefreshInterval" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="UpdateChecks initial delay" />
+                            <TextBox       Grid.Column="1" VerticalAlignment="Center" Text="{Binding Settings.InitialBackgroundRefreshDelay}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="BackgroundRefreshInterval" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="Show balloon tooltip" />
+                            <CheckBox      Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Settings.ShowBalloonOnChocoUpdatesFound}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="ShowBalloonOnChocoUpdatesFound" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                        <Separator Margin="6,8" Opacity="0.4" />
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="Powershell Path" />
+                            <TextBox       Grid.Column="1" Text="{Binding Settings.PowershellPath}" VerticalAlignment="Center" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="PowershellPath" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="Elevate Powershell execution" />
+                            <CheckBox      Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Settings.PowershellElevate}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="PowershellElevate" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="Show Powershell Window" />
+                            <CheckBox      Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Settings.ShowPowershellWindow}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="ShowPowershellWindow" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                        <Separator Margin="6,8" Opacity="0.4" />
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="Chocolatey executable location" />
+                            <TextBox       Grid.Column="1" VerticalAlignment="Center" Text="{Binding Settings.ChocoCommand}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="ChocoCommand" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="Chocolatey command timeout" />
+                            <CheckBox      Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Settings.ShowBalloonOnChocoUpdatesFound}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="ShowBalloonOnChocoUpdatesFound" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                    </StackPanel>
+                </GroupBox>
+
+
+                <GroupBox Header="SelfUpdate Check">
+                    <StackPanel>
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="Check for program updates" />
+                            <CheckBox      Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Settings.CheckForCTNUpdates}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="CheckForCTNUpdates" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="UpdateCheck interval" />
+                            <TextBox       Grid.Column="1" Text="{Binding Settings.CheckForCTNUpdatesInterval}" VerticalAlignment="Center" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="CheckForCTNUpdatesInterval" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="Show balloon tooltip" />
+                            <CheckBox      Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Settings.ShowBalloonOnCTNUpdatesFound}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="ShowBalloonOnCTNUpdatesFound" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                        <csuctrl:FixGrid FixColumnDefinitions="(Auto, SSG=A) * (Auto, SSG=B)">
+                            <Label         Grid.Column="0" Content="Send anonymous usage statistics" />
+                            <CheckBox      Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding Settings.SendAnonStatistics}" />
+                            <ctrl:PHelpBtn Grid.Column="2" HelpProperty="SendAnonStatistics" Margin="2,0" VerticalAlignment="Center" />
+                        </csuctrl:FixGrid>
+
+                    </StackPanel>
+                </GroupBox>
+
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1">
+            <Button Content="Discard"          MinWidth="110" Margin="4"                   Command="{Binding DiscardCommand}" />
+            <Button Content="Save &amp; Apply" MinWidth="110" Margin="4" FontWeight="Bold" Command="{Binding SaveCommand}" />
+        </StackPanel>
+
     </Grid>
 </UserControl>

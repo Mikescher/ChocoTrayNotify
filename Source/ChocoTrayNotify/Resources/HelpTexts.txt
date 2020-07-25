@@ -1,0 +1,47 @@
+﻿[StartMinimized]
+Start AlephNote minimized (in the windows tray area)
+
+[SortUpdatesToTop]
+Show packages with available updates at the top of the list
+
+[SimplifyPackageDisplayList]
+Do not show {name}.install or {name}.portable packages if there is an equal {name} base package installed
+
+[PowershellPath]
+The path to the powershell executable
+
+[PowershellElevate]
+Run powershell (and by induction chocolatey) in an elevated prompt.
+Chocolatey needs to be executed in an elevated powershell prompt, but if ChocoTryNotify is already elevated this is not neccessary
+
+[ShowPowershellWindow]
+Show the powershell windowwhich executes the chocolatey commands (for update checking etc)
+
+[RefreshInBackground]
+Enable background checks for updated packages
+
+[BackgroundRefreshInterval]
+The interval (in minutes) in which ChocoTryNotify executes an `choco outdated` command to find new pacakge updates
+
+[InitialBackgroundRefreshDelay]
+The initial interval until the first chocolatey query to find new package updates.
+After the first query the normal "interval" value is used 
+
+[ShowBalloonOnChocoUpdatesFound]
+Show a baloon tooltip when (new) package updates are found
+
+[CheckForCTNUpdates]
+Check for updates of ChocoTrayNotify itself (queries github to get the latest version)
+
+[CheckForCTNUpdatesInterval]
+Interval to check for new ChocoTrayNotify updates
+
+[ShowBalloonOnCTNUpdatesFound]
+Show a baloon tooltip when there is a new update for ChocoTrayNotify available
+
+[ChocoCommand]
+The path to the chocolatey executable, can be just `choco` if the exe is in your PATH.
+
+[ChocoCommandTimeout]
+The timeout for chocolatey command runs. After this time a chocolatey command is handled as "failed"
+

@@ -1,5 +1,6 @@
 ﻿using ChocoTrayNotify.Serialization;
 using MSHC.WPF.MVVM;
+using System;
 using System.IO;
 
 namespace ChocoTrayNotify
@@ -40,7 +41,7 @@ namespace ChocoTrayNotify
 
         [CTNXMLField]
         public int CheckForCTNUpdatesInterval { get { return _checkForCTNUpdatesInterval; } set { _checkForCTNUpdatesInterval = value; OnPropertyChanged(); } }
-        private int _checkForCTNUpdatesInterval = 6 * 60 * 60 * 1000; // 6 hour
+        private int _checkForCTNUpdatesInterval = 24 * 60; // [in minutes] // 1 day
 
         [CTNXMLField]
         public bool RefreshInBackground { get { return _refreshInBackground; } set { _refreshInBackground = value; OnPropertyChanged(); } }
@@ -48,11 +49,11 @@ namespace ChocoTrayNotify
 
         [CTNXMLField]
         public int BackgroundRefreshInterval { get { return _backgroundRefreshInterval; } set { _backgroundRefreshInterval = value; OnPropertyChanged(); } }
-        private int _backgroundRefreshInterval = 6 * 60 * 60 * 1000; // 6 hour
+        private int _backgroundRefreshInterval = 6 * 60; // [in minutes] // 6 hour
 
         [CTNXMLField]
         public int InitialBackgroundRefreshDelay { get { return _initialBackgroundRefreshDelay; } set { _initialBackgroundRefreshDelay = value; OnPropertyChanged(); } }
-        private int _initialBackgroundRefreshDelay = 15 * 60 * 1000; // 15 min
+        private int _initialBackgroundRefreshDelay = 15; // [in minutes] // 15 min
 
         [CTNXMLField]
         public bool ShowBalloonOnChocoUpdatesFound { get { return _showBalloonOnChocoUpdatesFound; } set { _showBalloonOnChocoUpdatesFound = value; OnPropertyChanged(); } }
@@ -72,7 +73,7 @@ namespace ChocoTrayNotify
 
         // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        private static readonly AlephXMLSerializer<CTNSettings> _serializer = new AlephXMLSerializer<CTNSettings>("configuration");
+        private static readonly CTNXMLSerializer<CTNSettings> _serializer = new CTNXMLSerializer<CTNSettings>("configuration");
 
         private readonly string _path;
 
@@ -93,13 +94,25 @@ namespace ChocoTrayNotify
 
         public string Serialize()
         {
-            return _serializer.Serialize(this, AlephXMLSerializer<CTNSettings>.DEFAULT_SERIALIZATION_SETTINGS);
+            return _serializer.Serialize(this, CTNXMLSerializer<CTNSettings>.DEFAULT_SERIALIZATION_SETTINGS);
+        }
+
+        public CTNSettings Clone()
+        {
+            var clone = new CTNSettings(_path);
+            _serializer.Clone(this, clone);
+            return clone;
+        }
+
+        internal void Apply(CTNSettings source)
+        {
+            _serializer.Clone(source, this);
         }
 
         public static CTNSettings Deserialize(string xml, string path)
         {
             var r = new CTNSettings(path);
-            _serializer.Deserialize(r, xml, AlephXMLSerializer<CTNSettings>.DEFAULT_SERIALIZATION_SETTINGS);
+            _serializer.Deserialize(r, xml, CTNXMLSerializer<CTNSettings>.DEFAULT_SERIALIZATION_SETTINGS);
             return r;
         }
 

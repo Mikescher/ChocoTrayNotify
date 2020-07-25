@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace ChocoTrayNotify.Serialization
 {
-	public class AlephXMLSerializer<T> where T : ICTNSerializable
+	public class CTNXMLSerializer<T> where T : ICTNSerializable
 	{
 		private class AttrObj { public PropertyInfo Info; public List<object> Attributes; }
 
@@ -19,7 +19,7 @@ namespace ChocoTrayNotify.Serialization
 		private readonly List<CTNXMLFieldInfo> _fields;
 
 		// ReSharper disable once RedundantEnumerableCastCall
-		public AlephXMLSerializer(string rootName)
+		public CTNXMLSerializer(string rootName)
 		{
 			_rootNode = rootName;
 
